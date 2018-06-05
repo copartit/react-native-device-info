@@ -73,6 +73,9 @@ module.exports = {
   getDeviceCountry: function() {
     return RNDeviceInfo.deviceCountry;
   },
+  getBrandForApp: function() {
+    return RNDeviceInfo.brandForApp;
+  },
   getTimezone: function() {
     return RNDeviceInfo.timezone;
   },
