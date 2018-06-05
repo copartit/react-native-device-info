@@ -11,12 +11,22 @@ import java.util.Collections;
 import java.util.List;
 
 public class RNDeviceInfo implements ReactPackage {
+  
+  String brandForApp = null;
 
+  public RNDeviceInfo() {
+       super();
+    }
+  public RNDeviceInfo(String brand) {
+        super();
+        this.brandForApp = brand;
+      }
+  
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
 
-    modules.add(new RNDeviceModule(reactContext));
+    modules.add(new RNDeviceModule(reactContext, this.brandForApp));
 
     return modules;
   }
