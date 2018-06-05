@@ -46,10 +46,10 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   ReactApplicationContext reactContext;
 
   WifiInfo wifiInfo;
-
-  public RNDeviceModule(ReactApplicationContext reactContext) {
+  String brandForApp = null;
+  public RNDeviceModule(ReactApplicationContext reactContext, String brand) {
     super(reactContext);
-
+    this.brandForApp = brand;
     this.reactContext = reactContext;
   }
 
@@ -271,6 +271,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     constants.put("deviceId", Build.BOARD);
     constants.put("apiLevel", Build.VERSION.SDK_INT);
     constants.put("deviceLocale", this.getCurrentLanguage());
+    constants.put("brandForApp", this.brandForApp);
     constants.put("deviceCountry", this.getCurrentCountry());
     constants.put("uniqueId", Secure.getString(this.reactContext.getContentResolver(), Secure.ANDROID_ID));
     constants.put("systemManufacturer", Build.MANUFACTURER);
